@@ -1,0 +1,6 @@
+# jekyll related
+Gemfile.lock
+_site/
+
+# OS X related
+.DS_Store
