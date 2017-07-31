@@ -1,1 +1,23 @@
-theme: jekyll-theme-minimal
+# Description
+title: rockadudle
+email: rockadudle@gmail.com
+description: rockadudle
+baseurl: ""
+url: ""
+twitter_username: ""
+github_username:  Robinseibold
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+# Pagination settings
+paginate: 5
+
+# sass settings
+sass:
+  sass_dir: _sass
+  style: compressed

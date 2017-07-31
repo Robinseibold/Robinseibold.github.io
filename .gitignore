@@ -1,6 +1,7 @@
 # jekyll related
 Gemfile.lock
 _site/
+.sass-cache/
 
 # OS X related
 .DS_Store

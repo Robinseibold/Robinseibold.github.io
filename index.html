@@ -1,29 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<style>
-		body { background-color: #272727; }
-		.center_module {
-    	width: 40px;
-      height: 40px;
-      background-color: #272727;
-			position:absolute; /*it can be fixed too*/
-      left:0; right:0;
-      top:0; bottom:0;
-      margin:auto;
-      max-width:100%;
-      max-height:100%;
-      overflow:auto;
-		}
-	</style>
-	<meta charset="UTF-8">
-	<title>rockadudle</title>
-	<link rel="icon" href="images/minimen-favicon.png">
-</head>
+---
+layout: default
+title: rockadudle 
+---
 
-<body>
-	<div class="center_module">
-		<img src="images/minimen.png" alt="Mini Man" width="40" height="40">
+{% include header.html %}
+
+<div class="content">
+{% if paginator.total_posts > 0 %}
+	{% for post in paginator.posts %}
+		{{ post.content }}
+	{% endfor %}
+{% else %}
+	<div class="jumbotron text-center">
+		<h1> No posts yet :( </h1>
 	</div>
-</body>
-</html>
+{% endif %}
+
+<div class="container text-center">
+	{% if paginator.previous_page %}
+		<a class="nav" href="{{ paginator.previous_page_path }}"><i class="fa fa-arrow-circle-left fa-2x"></i></a>
+	{% endif %}
+
+	{% if paginator.next_page %}
+		<a class="nav" href="{{ paginator.next_page_path }}"><i class="fa fa-arrow-circle-right fa-2x"></i></a>
+	{% endif %}
+</div>
+</div>
+
+
+{% include footer.html %}
