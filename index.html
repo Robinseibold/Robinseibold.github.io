@@ -8,7 +8,49 @@ title: rockadudle
 <div class="content">
 {% if paginator.total_posts > 0 %}
 	{% for post in paginator.posts %}
-		{{ post.content }}
+		
+		<div class="post">
+			<h4>
+				{{ post.title }} 
+			</h4>
+			<h5><small>
+				<i class="fa fa-calendar-check-o"></i>
+				{{ post.date | date: "%d-%m-%Y" }}
+			</small></h5>
+			{% if post.images.size > 0 %}
+				<div id="{{ post.image_set_name }}" class="carousel slide" data-ride="carousel">
+					<a href="#{{ post.image_set_name }}" data-slide="next">
+						<ol class="carousel-indicators">
+							{% for image in post.images %}
+								<li data-target="#{{ post.image_set_name }}" 
+										data-slide-to="{{ forloop.index | minus: 1 }}"{% if forloop.index == 1 %} 
+										class="active"{% endif %}>
+								</li>
+							{% endfor %}
+						</ol>
+						<div class="carousel-inner">
+							{% for image in post.images %}
+								<div class="item{% if forloop.index == 1 %} active{% endif %}">
+									<img src="{{ site.url }}{{ image }}" alt="{{ image }}">
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				{% if post.appstore_link.size > 0 %}
+					<div class="store">
+						<a class="store-link" href="{{ post.appstore_link }}">
+							<img src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
+						</a>
+					</div>
+				{% endif %}
+
+			{% else %}
+				{{ post.content }}
+			{% endif %}
+		</div>
+
 	{% endfor %}
 {% else %}
 	<div class="jumbotron text-center">
