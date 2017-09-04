@@ -9,24 +9,26 @@ title: rockadudle
 {% if paginator.total_posts > 0 %}
 	{% for post in paginator.posts %}
 		
-		<div class="post">
-			<h4>
-				{{ post.title }} 
-			</h4>
-			<h5><small>
-				<i class="fa fa-calendar-check-o"></i>
-				{{ post.date | date: "%d-%m-%Y" }}
-			</small></h5>
-            {% include post_images.html links=post %}
-            {{ post.content }}
-            {% if post.appstore_link.size > 0 %}
-            <div class="store">
-                <a class="store-link" href="{{ post.appstore_link }}">
-                    <img src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
-                </a>
+        <div class="post-wrapper">
+            <div class="post">
+                <h4>
+                    {{ post.title }}
+                </h4>
+                <h5><small>
+                    <i class="fa fa-calendar-check-o"></i>
+                    {{ post.date | date: "%d-%m-%Y" }}
+                </small></h5>
+                {% include post_images.html links=post %}
+                {{ post.content }}
+                {% if post.appstore_link.size > 0 %}
+                <div class="store">
+                    <a class="store-link" href="{{ post.appstore_link }}">
+                        <img src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
+                    </a>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-		</div>
+        </div>
 
 	{% endfor %}
 {% else %}
