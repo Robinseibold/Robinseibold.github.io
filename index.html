@@ -18,7 +18,7 @@ title: rockadudle
 				{{ post.date | date: "%d-%m-%Y" }}
 			</small></h5>
 			{% if post.images.size > 0 %}
-				<div id="{{ post.image_set_name }}" class="carousel slide" data-ride="carousel">
+				<div id="{{ post.image_set_name }}" class="carousel" data-ride="carousel">
 					<a href="#{{ post.image_set_name }}" data-slide="next">
 						<ol class="carousel-indicators">
 							{% for image in post.images %}
