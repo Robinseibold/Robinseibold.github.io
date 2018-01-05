@@ -1,6 +1,5 @@
 
 {% for image_set in post.image_sets %}
-{% if image_set.size > 1 %}
 <div id="{{ image_set.name }}" class="carousel" data-ride="carousel">
     <a href="#{{ image_set.name }}" data-slide="next">
         <ol class="carousel-indicators">
@@ -20,9 +19,9 @@
         </div>
     </a>
 </div>
-{% else %}
-<div id="{{ image_set.name }}" class="image-single">
-    <img src="{{ site.url }}{{ image_set.images.first }}" alt="{{image_set.images.first}}">
+{% endfor %}
+{% if post.image_name.size > 0 %}
+<div id="{{ post.image_name }}">
+    <img class="img-responsive image-single" src="{{ site.url }}{{ post.image_src }}" alt="{{post.image_name}}">
 </div>
 {% endif %}
-{% endfor %}
