@@ -14,19 +14,26 @@ title: rockadudle
                 <h4>
                     {{ post.title }}
                 </h4>
+                {% if post.sub_title.size > 0 %}
+                <h5>
+                    {{ post.sub_title }}
+                </h5>
+                {% endif %}
                 <h5><small>
                     <i class="fa fa-calendar-check-o"></i>
                     {{ post.date | date: "%d-%m-%Y" }}
                 </small></h5>
-                {% include post_images.html links=post %}
-                {{ post.content }}
-                {% if post.appstore_link.size > 0 %}
-                <div class="store">
-                    <a class="store-link" href="{{ post.appstore_link }}">
-                        <img src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
-                    </a>
+                <div class="post-content">
+                    {% include post_images.html links=post %}
+                    {{ post.content }}
+                    {% if post.appstore_link.size > 0 %}
+                    <div class="store">
+                        <a class="store-link" href="{{ post.appstore_link }}">
+                            <img src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
         </div>
 

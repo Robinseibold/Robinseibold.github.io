@@ -1,22 +1,28 @@
 
 {% for image_set in post.image_sets %}
-    <div id="{{ image_set.name }}" class="carousel" data-ride="carousel">
-        <a href="#{{ image_set.name }}" data-slide="next">
-            <ol class="carousel-indicators">
-                {% for image in image_set.images %}
-                <li data-target="#{{ image_set.name }}"
-                    data-slide-to="{{ forloop.index | minus: 1 }}"{% if forloop.index == 1 %}
-                    class="active"{% endif %}>
-                </li>
-                {% endfor %}
-            </ol>
-            <div class="carousel-inner">
-                {% for image in image_set.images %}
-                <div class="item{% if forloop.index == 1 %} active{% endif %}">
-                    <img src="{{ site.url }}{{ image }}" alt="{{ image }}">
-                </div>
-                {% endfor %}
+{% if image_set.size > 1 %}
+<div id="{{ image_set.name }}" class="carousel" data-ride="carousel">
+    <a href="#{{ image_set.name }}" data-slide="next">
+        <ol class="carousel-indicators">
+            {% for image in image_set.images %}
+            <li data-target="#{{ image_set.name }}"
+                data-slide-to="{{ forloop.index | minus: 1 }}"{% if forloop.index == 1 %}
+                class="active"{% endif %}>
+            </li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% for image in image_set.images %}
+            <div class="item{% if forloop.index == 1 %} active{% endif %}">
+                <img src="{{ site.url }}{{ image }}" alt="{{ image }}">
             </div>
-        </a>
-    </div>
+            {% endfor %}
+        </div>
+    </a>
+</div>
+{% else %}
+<div id="{{ image_set.name }}" class="image-single">
+    <img src="{{ site.url }}{{ image_set.images.first }}" alt="{{image_set.images.first}}">
+</div>
+{% endif %}
 {% endfor %}
