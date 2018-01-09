@@ -16,8 +16,13 @@ plugins:
 
 # Pagination settings
 paginate: 5
+paginate_path: "/feed/page:num/"
 
 # sass settings
 sass:
   sass_dir: _sass
   style: compressed
+
+# Collections
+collections:
+- games
