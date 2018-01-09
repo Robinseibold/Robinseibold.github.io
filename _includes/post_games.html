@@ -1,0 +1,52 @@
+
+{% for game in site.games %}
+<div class="content-game">
+<div class="row vertical-align">
+	<div class="col-md-6 col-md-push-6">
+		<div class="align-middle">
+		<img class="img-responsive game-title-image" src="{{ site.url }}{{ game.title_image }}" alt="{{game.title}}">
+		<p class="game-spec-title">
+		Title : <span class="game-spec-text">{{ game.title }}</span>
+		</p>
+		<p class="game-spec-title">
+		Release Date : <span class="game-spec-text">{{ game.release_date }}</span>
+		</p>
+		<p class="game-spec-title">
+		Platform : <span class="game-spec-text">{{ game.platform }}</span>
+		</p>
+		<p class="game-spec-description">{{ game.description }}</p>
+		{% if game.appstore_link.size > 0 %}
+		<div class="store">
+			<a class="store-link" href="{{ game.appstore_link }}">
+				<img src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
+			</a>
+		</div>
+		{% endif %}
+		</div>
+	</div>
+	
+	<div class="col-md-6 col-md-pull-6">
+		<div id="{{ game.image_set.name }}" class="carousel" data-ride="carousel">
+			<a href="#{{ game.image_set.name }}" data-slide="next">
+				<ol class="carousel-indicators">
+					{% for image in game.image_set.images %}
+					<li data-target="#{{ game.image_set.name }}"
+						data-slide-to="{{ forloop.index | minus: 1 }}"{% if forloop.index == 1 %}
+						class="active"{% endif %}>
+					</li>
+					{% endfor %}
+				</ol>
+				<div class="carousel-inner">
+					{% for image in game.image_set.images %}
+					<div class="item{% if forloop.index == 1 %} active{% endif %}">
+						<img src="{{ site.url }}{{ image }}" alt="{{ image }}">
+					</div>
+					{% endfor %}
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+</div>
+
+{% endfor %}

@@ -1,5 +1,7 @@
 header
 	background-color: white
+	padding: 0px
+	margin: 0px
 
 a.link, a.link:visited,
 a.link-github, a.link-github:visited,
@@ -27,6 +29,10 @@ a.link-youtube:hover, a.link-youtube:active
 a.link-twitch:hover, a.link-twitch:active
 	color: #6441A4
 
+.current
+	cursor: default
+	line-height: 30px
+
 ul
 	padding: 0
 	list-style-type: none
@@ -40,7 +46,9 @@ ul
 	text-align: center
 
 .navbar-nav li a
-	line-height: 28px	/* Size of font awesome 2x icons */
+	line-height: 30px	/* Size of font awesome 2x icons + 2px */
 
 .nav-item
-	margin: 1em
+	margin-left: 1em
+	margin-right: 1em
+	margin-top: 1em
