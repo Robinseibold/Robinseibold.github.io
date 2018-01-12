@@ -1,10 +1,12 @@
 
-{% for game in site.games %}
+{% for game in site.games reversed %}
 <div class="content-game">
 <div class="row vertical-align">
-	<div class="col-md-6 col-md-push-6">
+	<div class="col-md-6 {% cycle 'col-md-push-6', '' %}">
 		<div class="align-middle">
+		{% if game.title_image.size > 0 %}
 		<img class="img-responsive game-title-image" src="{{ site.url }}{{ game.title_image }}" alt="{{game.title}}">
+		{% endif %}
 		<p class="game-spec-title">
 		Title : <span class="game-spec-text">{{ game.title }}</span>
 		</p>
@@ -25,7 +27,7 @@
 		</div>
 	</div>
 	
-	<div class="col-md-6 col-md-pull-6">
+	<div class="col-md-6 {% cycle 'col-md-pull-6', '' %}">
 		<div id="{{ game.image_set.name }}" class="carousel" data-ride="carousel">
 			<a href="#{{ game.image_set.name }}" data-slide="next">
 				<ol class="carousel-indicators">
