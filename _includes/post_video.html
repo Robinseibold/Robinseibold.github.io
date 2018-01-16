@@ -1,8 +1,10 @@
 
 {% if post.video.size > 0 %}
-<div align="center" class="embed-responsive embed-responsive-4by3 video-asset">
+<div class="video-asset">
+<div class="embed-responsive embed-responsive-9by16">
 	<video autoplay loop class="embed-responsive-item">
 		<source src="{{ site.url }}{{ post.video }}" type="video/mp4">
 	</video>
+</div>
 </div>
 {% endif %}
