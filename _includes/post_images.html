@@ -27,7 +27,9 @@
 {% if post.image_name.size > 0 %}
 <div id="{{ post.image_name }}">
 	<div class="post-asset">
-		<img class="img-responsive image-single post-asset" src="{{ site.url }}{{ post.image_src }}" alt="{{post.image_name}}">
+		<img class="img-responsive post-asset{% if post.image_long %} image-single-long {% else %} image-single {% endif %}"
+			src="{{ site.url }}{{ post.image_src }}"
+			alt="{{post.image_name}}">
 	</div>
 </div>
 {% endif %}

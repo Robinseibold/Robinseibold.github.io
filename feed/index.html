@@ -7,7 +7,7 @@ active: feed
 	{% if paginator.total_posts > 0 %}
 	{% for post in paginator.posts %}
 	
-	<div class="post-wrapper">
+	<div class="post-wrapper {% cycle 'gray-background', '' %}">
 		<div class="post">
 			<h4>
 				{{ post.title }}
@@ -43,13 +43,13 @@ active: feed
 	</div>
 	{% endif %}
 	
-	<div class="container text-center">
+	<div class="container text-center feed-nav">
 		{% if paginator.previous_page %}
-		<a class="nav" href="{{ paginator.previous_page_path }}"><i class="fa fa-arrow-circle-left fa-2x"></i></a>
+		<a class="nav link" href="{{ paginator.previous_page_path }}"><i class="fa fa-arrow-circle-left fa-2x"></i></a>
 		{% endif %}
 		
 		{% if paginator.next_page %}
-		<a class="nav" href="{{ paginator.next_page_path }}"><i class="fa fa-arrow-circle-right fa-2x"></i></a>
+		<a class="nav link" href="{{ paginator.next_page_path }}"><i class="fa fa-arrow-circle-right fa-2x"></i></a>
 		{% endif %}
 	</div>
 </div>
