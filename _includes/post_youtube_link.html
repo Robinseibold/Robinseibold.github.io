@@ -1,0 +1,8 @@
+
+{% if post.youtube.size > 0 %}
+<div class="video-asset">
+	<div class="embed-responsive embed-responsive-9by16">
+		<iframe class="embed-responsive-item" src="{{ post.youtube }}" allowfullscreen></iframe>
+	</div>
+</div>
+{% endif %}

@@ -24,6 +24,7 @@ active: feed
 			<div class="post-content">
 				{% include post_images.html links=post %}
 				{% include post_video.html links=post %}
+				{% include post_youtube_link.html links=post %}
 				{{ post.content }}
 				{% if post.appstore_link.size > 0 %}
 				<div class="store">
