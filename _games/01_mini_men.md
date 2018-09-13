@@ -2,6 +2,8 @@
 title: "Mini Men"
 release_date: 27-04-2017
 platform: iOS
+developer: Rockadudle
+art: Rockadudle
 description: "Help Mini Men on their travels by constructing the road ahead. Explore more routes and cover a greater distance by employing more Mini Men."
 title_image: /assets/title_images/mini_men.png
 image_set:

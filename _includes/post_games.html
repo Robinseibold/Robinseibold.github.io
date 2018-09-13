@@ -7,20 +7,41 @@
 		{% if game.title_image.size > 0 %}
 		<img class="img-responsive game-title-image" src="{{ site.url }}{{ game.title_image }}" alt="{{game.title}}">
 		{% endif %}
+		
 		<p class="game-spec-title">
-		Title : <span class="game-spec-text">{{ game.title }}</span>
+		Release Date: <span class="game-spec-text">{{ game.release_date }}</span>
 		</p>
 		<p class="game-spec-title">
-		Release Date : <span class="game-spec-text">{{ game.release_date }}</span>
+		Platform: <span class="game-spec-text">{{ game.platform }}</span>
 		</p>
 		<p class="game-spec-title">
-		Platform : <span class="game-spec-text">{{ game.platform }}</span>
+		Developer: <span class="game-spec-text">{{ game.developer }}</span>
 		</p>
+		<p class="game-spec-title">
+		Art: <span class="game-spec-text">{{ game.art }}</span>
+		</p>
+		<p class="game-spec-title">
+		Sound: <span class="game-spec-text">
+			{% if game.sound_credits.size > 0 %}
+				<a class="nav-link link" target="_blank" href="{{site.url}}{{game.sound_credits}}">Credits</a>
+			{% else %}
+				{{ game.developer }}
+			{% endif %}
+		</span>
+		</p>
+		
 		<p class="game-spec-description">{{ game.description }}</p>
 		{% if game.appstore_link.size > 0 %}
 		<div class="store">
-			<a class="store-link" href="{{ game.appstore_link }}">
-				<img src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
+			<a class="store-link" target="_blank" href="{{ game.appstore_link }}">
+				<img class="store-image" src="{{ site.url }}/assets/store-images/apple-appstore-badge.svg"></img>
+			</a>
+		</div>
+		{% endif %}
+		{% if game.playstore_link.size > 0 %}
+		<div class="store">
+			<a class="store-link" target="_blank" href="{{ game.playstore_link }}">
+				<img class="store-image" src="{{ site.url }}/assets/store-images/google-playstore-badge.png"></img>
 			</a>
 		</div>
 		{% endif %}
